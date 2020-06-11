@@ -54,9 +54,14 @@ public class ConsoleLoggerUtilsTest
             for ( Enumeration<InetAddress> inets = net.getInetAddresses(); inets.hasMoreElements();  )
             {
                 InetAddress addr = inets.nextElement();
-                System.out.println( addr + " (anylocalAddr=" + addr.isAnyLocalAddress()
-                    + ", loopback=" + addr.isLoopbackAddress() + ", linkLocalAddr=" + addr.isLinkLocalAddress()
-                    + ", siteLocalAddr=" + addr.isSiteLocalAddress() + ")" );
+                System.out.println( addr
+                    + " (hostname = " + addr.getHostName()
+                    + ", cannonical hostname=" + addr.getCanonicalHostName()
+                    + ", anylocalAddr=" + addr.isAnyLocalAddress()
+                    + ", loopback=" + addr.isLoopbackAddress()
+                    + ", linkLocalAddr=" + addr.isLinkLocalAddress()
+                    + ", siteLocalAddr=" + addr.isSiteLocalAddress()
+                    + ")" );
             }
         }
 
