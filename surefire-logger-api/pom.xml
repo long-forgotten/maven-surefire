@@ -78,9 +78,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+<!--                    <useFile>true</useFile>-->
+                    <redirectTestOutputToFile>false</redirectTestOutputToFile>
                     <argLine>${jvm.args.tests} ${jacoco.agent}</argLine>
                     <includes>
-                        <include>**/JUnit4SuiteTest.java</include>
+                        <include>ConsoleLoggerUtilsTest</include>
                     </includes>
                 </configuration>
                 <dependencies>

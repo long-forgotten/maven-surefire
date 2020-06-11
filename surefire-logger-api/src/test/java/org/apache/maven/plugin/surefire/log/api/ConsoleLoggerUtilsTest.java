@@ -23,6 +23,11 @@ import org.junit.Test;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Enumeration;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -31,6 +36,36 @@ import static org.fest.assertions.Assertions.assertThat;
  */
 public class ConsoleLoggerUtilsTest
 {
+    @Test
+    public void testMacOS() throws Exception
+    {
+        System.out.println( "localhost: " + InetAddress.getLocalHost() );
+        Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
+        while ( nets.hasMoreElements() )
+        {
+            NetworkInterface net = nets.nextElement();
+            if ( !net.isUp() )
+            {
+                continue;
+            }
+            System.out.println( "NetworkInterface: " + net.toString() + ", addresses=" + net.getInetAddresses()
+                + ", up=" + net.isUp() + ", virtual=" + net.isVirtual() + ", loopback=" + net.isLoopback() );
+            System.out.println( "InetAddresses:" );
+            for ( Enumeration<InetAddress> inets = net.getInetAddresses(); inets.hasMoreElements();  )
+            {
+                InetAddress addr = inets.nextElement();
+                System.out.println( addr + " (anylocalAddr=" + addr.isAnyLocalAddress()
+                    + ", loopback=" + addr.isLoopbackAddress() + ", linkLocalAddr=" + addr.isLinkLocalAddress()
+                    + ", siteLocalAddr=" + addr.isSiteLocalAddress() + ")" );
+            }
+        }
+
+        byte[] content = Files.readAllBytes( Paths.get( "/etc", "hosts" ) );
+        System.out.println( "The content of '/etc/hosts'" );
+        System.out.println( new String( content ) );
+
+    }
+
     @Test
     public void shouldPrintStacktraceAsString()
     {

@@ -36,8 +36,8 @@ final def mavens = env.BRANCH_NAME == 'master' ? ['3.6.x', '3.2.x'] : ['3.6.x']
 final def jdks = [15, 14, 11, 8, 7]
 
 final def options = ['-e', '-V', '-B', '-nsu', '-P', 'run-its']
-final def goals = ['clean', 'install']
-final def goalsDepl = ['clean', 'deploy', 'jacoco:report']
+final def goals = ['clean']
+final def goalsDepl = ['clean']
 final Map stages = [:]
 
 oses.eachWithIndex { osMapping, indexOfOs ->
