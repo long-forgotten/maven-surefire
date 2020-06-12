@@ -52,7 +52,8 @@ public class ConsoleLoggerUtilsTest
                 continue;
             }
             System.out.println( "NetworkInterface: " + net.toString() + ", addresses=" + net.getInetAddresses()
-                + ", up=" + net.isUp() + ", virtual=" + net.isVirtual() + ", loopback=" + net.isLoopback() );
+                + ", up=" + net.isUp() + ", virtual=" + net.isVirtual() + ", loopback=" + net.isLoopback()
+                + ", point2point=" + net.isPointToPoint() );
             System.out.println( "InetAddresses:" );
             for ( Enumeration<InetAddress> inets = net.getInetAddresses(); inets.hasMoreElements();  )
             {
