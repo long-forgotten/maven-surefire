@@ -32,7 +32,6 @@ import org.apache.maven.surefire.extensions.util.LineConsumerThread;
 import javax.annotation.Nonnull;
 import java.io.Closeable;
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketOption;
@@ -84,10 +83,9 @@ final class SurefireForkChannel extends ForkChannel
         super( arguments );
         server = open( withThreadPool( THREAD_POOL ) );
         setTrueOptions( SO_REUSEADDR, TCP_NODELAY, SO_KEEPALIVE );
-        InetAddress ip = Inet4Address.getLocalHost();
-        server.bind( new InetSocketAddress( ip, 0 ), 1 );
+        server.bind( null, 1 );
         InetSocketAddress localAddress = (InetSocketAddress) server.getLocalAddress();
-        localHost = localAddress.getHostString();
+        localHost = InetAddress.getLocalHost().getHostAddress(); // localAddress.getHostString();
         localPort = localAddress.getPort();
     }
 
