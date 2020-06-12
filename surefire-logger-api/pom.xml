@@ -80,7 +80,7 @@
                 <configuration>
 <!--                    <useFile>true</useFile>-->
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
-                    <argLine>-Djava.net.preferIPv4Stack=true</argLine>
+<!--                    <argLine>-Djava.net.preferIPv4Stack=true</argLine>-->
                     <includes>
                         <include>ConsoleLoggerUtilsTest</include>
                     </includes>

@@ -39,6 +39,9 @@ public class ConsoleLoggerUtilsTest
     @Test
     public void testMacOS() throws Exception
     {
+        System.out.println( "java.net.preferIPv4Stack = " + System.getProperty( "java.net.preferIPv4Stack" ) );
+        System.out.println( "JAVA_OPTS = " + System.getenv( "JAVA_OPTS" ) );
+        System.out.println( "MAVEN_OPTS = " + System.getenv( "MAVEN_OPTS" ) );
         System.out.println( "localhost: " + InetAddress.getLocalHost() );
         Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
         while ( nets.hasMoreElements() )
