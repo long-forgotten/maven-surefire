@@ -83,7 +83,8 @@ final class SurefireForkChannel extends ForkChannel
         super( arguments );
         server = open( withThreadPool( THREAD_POOL ) );
         setTrueOptions( SO_REUSEADDR, TCP_NODELAY, SO_KEEPALIVE );
-        server.bind( null, 1 );
+        server.bind( new InetSocketAddress( InetAddress.getByAddress( InetAddress.getLocalHost().getAddress() ),
+            0 ), 1 );
         InetSocketAddress localAddress = (InetSocketAddress) server.getLocalAddress();
         localHost = InetAddress.getLocalHost().getHostAddress(); // localAddress.getHostString();
         localPort = localAddress.getPort();
