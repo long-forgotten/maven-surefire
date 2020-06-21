@@ -36,4 +36,4 @@ jobs:
         run: mvn install -e -B -V -nsu --no-transfer-progress -DskipTests
 
       - name: Build with Maven without Unit Tests
-        run: mvn install -e -B -V -nsu --no-transfer-progress -rf :surefire-its -P run-its "-Dit.test=!**/jiras/*IT*.java"
+        run: mvn install -e -B -V -nsu --no-transfer-progress -rf :surefire-its -P run-its "-Dit.test=!**/jiras/*IT*.java,!TestMethodPatternIT,!TestMultipleMethodPatternsIT,!TestMultipleMethodPatternsTestNGIT"

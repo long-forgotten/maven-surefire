@@ -651,12 +651,6 @@
                                 <configuration><artifact>org.junit.vintage:junit-vintage-engine:5.4.2</artifact></configuration>
                             </execution>
                             <execution>
-                                <id>vintage-5.5</id>
-                                <phase>pre-integration-test</phase>
-                                <goals><goal>get</goal></goals>
-                                <configuration><artifact>org.junit.vintage:junit-vintage-engine:5.5.0</artifact></configuration>
-                            </execution>
-                            <execution>
                                 <id>vintage-5.5.2</id>
                                 <phase>pre-integration-test</phase>
                                 <goals><goal>get</goal></goals>
@@ -709,12 +703,6 @@
                                 <phase>pre-integration-test</phase>
                                 <goals><goal>get</goal></goals>
                                 <configuration><artifact>org.junit.jupiter:junit-jupiter-engine:5.4.2</artifact></configuration>
-                            </execution>
-                            <execution>
-                                <id>jupiter-5.5</id>
-                                <phase>pre-integration-test</phase>
-                                <goals><goal>get</goal></goals>
-                                <configuration><artifact>org.junit.jupiter:junit-jupiter-engine:5.5.0</artifact></configuration>
                             </execution>
                             <execution>
                                 <id>jupiter-5.5.2</id>

@@ -33,4 +33,4 @@ jobs:
           java-version: 14
 
       - name: Build with Maven
-        run: mvn install -e -B -V -nsu --no-transfer-progress -P run-its "-Dit.test=**/jiras/*IT*.java"
+        run: mvn install -e -B -V -nsu --no-transfer-progress -P run-its "-Dit.test=**/jiras/*IT*.java,TestMethodPatternIT,TestMultipleMethodPatternsIT,TestMultipleMethodPatternsTestNGIT"
